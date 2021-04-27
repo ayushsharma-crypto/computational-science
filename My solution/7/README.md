@@ -20,7 +20,7 @@ Time of simulation : ~1-2 minutes
 
 ## Code Flow
 
-1. Made 1-D NP array with spin value 1 or -1 f size N.
+1. Made 1-D NP array with spin value 1 or -1 of size N.
 
 2. Calculated Initial energy of system using equation mentioned in the question.
 
