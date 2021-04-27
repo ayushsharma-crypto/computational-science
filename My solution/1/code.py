@@ -203,7 +203,7 @@ def meansq_displacement():
     cy_list=[]
 
     # Computational calculation
-    total_iteration=200
+    total_iteration=60
     for i in range(0,total_iteration):
         count=0
         a_rand_N= random.randrange(1,100,1)
@@ -237,4 +237,4 @@ def meansq_displacement():
 # mean_displacement()
 
 # uncomment line 240 for part4 and run the file using cmd "python code.py" then wait until simulation gets over
-# meansq_displacement()
+meansq_displacement()
