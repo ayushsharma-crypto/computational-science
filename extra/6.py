@@ -100,10 +100,10 @@ def part2(N, T, graph=True):
 
 
 if __name__ == "__main__":
-    part1(20, 100)
-    part1(1000, 100)
-    part2(20, 100)
-    part2(1000, 100)
+    # part1(20, 100)
+    # part1(1000, 100)
+    # part2(20, 100)
+    # part2(1000, 100)
     std_dev1 = []
     std_dev2 = []
     n_l = []
