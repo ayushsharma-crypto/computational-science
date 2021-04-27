@@ -1,4 +1,54 @@
-# Observations regarding the nature of trajectory
+# Analysis of Models Describing Predator-Prey Interaction 
+
+Table of content:
+
+1. How to Run code.py ?
+2. ODE for modelling Predator-Prey Interaction 
+3. Observations regarding the nature of trajectory
+
+## How to Run code.py ?
+
+**Requirements:**
+* Matplotlib
+* Numpy
+
+**Execute the command**: `python3 code.py`
+
+**Output:** 
+* Three plottings of trajectory for N1 & N2 against time.
+* Which will be same as stored in images directory.
+
+## ODE for modelling Predator-Prey Interaction
+
+
+As a simplest form, the interaction between a predator and prey may be modeled by a pair of differential equations :-
+
+**Logistic model**
+
+* dN<sub>1</sub>(t)/dt = - αN<sub>2</sub>(t)N<sub>2</sub>(t) + rN<sub>1</sub>(t) [ 1 - N<sub>1</sub>(t)/k ]
+
+* dN<sub>2</sub>(t)/dt = -cN<sub>2</sub>(t) + βN<sub>2</sub>(t)N<sub>2</sub>(t)
+
+    Where,
+
+    N<sub>1</sub> →  Prey Population
+
+    N<sub>2</sub> →  Predator Population
+
+    α  →  Rate at which the predator captures its prey
+
+    β  →  Growth rate of the predator
+
+    c  →  Decay rate of the predator if  N1=0
+
+
+* In the absence of the predation, the prey grows logistically with intrinsic growth rate r and carrying capacity K. 
+* α accounts for the rate of predation.
+* In the presence of the predator, the prey species decreases at a rate proportional to the functional response cN, where c accounts for the rate of predation & also denotes the efficiency of predation which divides a maximum per capita birth rate of the predators into a maximum per capita consumption rate. 
+* Without the prey, no predation occurs and the predator species decreases exponentially with mortality rate β.
+
+
+## Observations regarding the nature of trajectory
 
 * We can observe early stable N<sub>1</sub> - N<sub>2</sub> equilibrium if β is small enoughi.e. β  < 10<sup>-4</sup>>. For example `Figure_1`.
 
