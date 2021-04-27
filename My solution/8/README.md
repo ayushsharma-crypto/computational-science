@@ -19,19 +19,19 @@
 
 **Figure 1**
 
-![text](.\images\Figure_1.png)
+![text](./images/Figure_1.png)
 
 **Figure 2**
 
-![text](.\images\Figure_2.png)
+![text](./images/Figure_2.png)
 
 **Figure 3**
 
-![text](.\images\Figure_3.png)
+![text](./images/Figure_3.png)
 
 **Figure 4**
 
-![text](.\images\Figure_4.png)
+![text](./images/Figure_4.png)
 
 **Different Values used to run code:**
 
