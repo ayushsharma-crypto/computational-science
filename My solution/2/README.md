@@ -14,4 +14,4 @@
 **Output :**
 
     There will be a graph output for PI va N as attached.
-    Time of simulation : ~3-6 minutes
+    Time of simulation : ~1 minutes

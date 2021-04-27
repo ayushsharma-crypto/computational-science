@@ -27,4 +27,4 @@
 **Output :**
 
     There will be a graph output for each function call as shown above.
-    Time of simulation : ~3-6 minutes
+    Time of simulation : ~2-3 minutes
