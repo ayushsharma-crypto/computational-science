@@ -71,15 +71,15 @@ def plot(Dx, Dy, t):
         plt.title(f"Dy greater than Dx and {len(t)} timestamps")
     plt.show()
 
-np.seterr('raise')
-Dx, Dy = 0.01, 0.01
-for ti in t:
-    plot(Dx, Dy, ti)
+# np.seterr('raise')
+# Dx, Dy = 0.01, 0.01
+# for ti in t:
+#     plot(Dx, Dy, ti)
 
-np.seterr('raise')
-Dx, Dy = 0.01, 0.005
-for ti in t:
-    plot(Dx, Dy, ti)
+# np.seterr('raise')
+# Dx, Dy = 0.01, 0.005
+# for ti in t:
+#     plot(Dx, Dy, ti)
 
 np.seterr('raise')
 Dx, Dy = 0.005, 0.01
