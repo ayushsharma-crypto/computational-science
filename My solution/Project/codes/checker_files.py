@@ -14,7 +14,6 @@ def read_config():
     return points
 
 def check_random_conf_correctness():
-    f1 = open("temp.txt", "w")
     config = numpy.array(read_config())
     sigma = 3.4
     for p1 in config:
@@ -24,7 +23,6 @@ def check_random_conf_correctness():
             if (a==x)and(b==y)and(c==z):
                 continue
             if (norm(p1-p2) <= sigma):
-                print(f"P1 = {p1} and P2 = {p1}\n", file=f1)
-    f1.close()
+                print(f"P1 = {p1} and P2 = {p1}\n")
 
 check_random_conf_correctness()

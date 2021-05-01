@@ -37,8 +37,8 @@ class Configuration:
                 if iterated_times > 1000000:
                     new_config = [ random_point ]
                     for point in self.config:
-                        # if (norm(self.pbc(point,random_point)) > self.sigma):
-                        if (norm(point-random_point) > self.sigma):
+                        if (norm(self.pbc(point,random_point)) > self.sigma):
+                            # if (norm(point-random_point) > self.sigma):
                             new_config.append(point)
                     self.config = new_config
 
@@ -46,4 +46,6 @@ class Configuration:
                 iterated_times = 0
                 self.config.append(random_point)
             print(f"Total points = {len(self.config)}")
-    
+        
+    def assign_configuration(self,new_config):
+        self.config = new_config    

@@ -1,4 +1,3 @@
-from numpy import random
 from configuration import Configuration
 
 def initial_configuration():
@@ -15,6 +14,6 @@ def initial_configuration():
 if __name__=="__main__":
     print("Generating A Random Initial Configuration...")
     random_conf = initial_configuration()
-    print("Checking corrctness...")
-    random_conf.check_pbc()
+    # print("Checking corrctness...")
+    # random_conf.check_pbc()
     print("Conf. generated and saved at location ./outputs/init_conf.xyz")
