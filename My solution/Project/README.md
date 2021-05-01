@@ -61,7 +61,7 @@ For each part of the project (total 5), a file has been written (nammed for same
 **File Structure :**
 
 ```
-├── codes
+├── codesNormal
 │   ├── checker_files.py
 │   ├── configuration.py
 │   ├── outputs
@@ -149,7 +149,7 @@ def calculate_potential(self):
 
 Basically I did the summation of interaction energy per pair, which is as follows:-
 
-![IE](./codes/outputs/interactionenergy.png)
+![IE](./codes/extra/interactionenergy.png)
 
 
 The output for the submittedmolecule is: <b>-152.47234949736315</b>
@@ -178,7 +178,7 @@ As a result, there is no need to verify the boundary conditions during the updat
     1. iteration_heuristic = 200
     2. alpha_heuristic = 0.135
 
-![MA](./codes/outputs/minimizationalgo.png)
+![MA](./codes/extra/minimizationalgo.png)
 
 **Logic of Code :**
 
@@ -214,7 +214,7 @@ The hassien matrix, eigen values  & eigen vectorsis saved in `hassien.py`, `eige
 
 Formula used :-
 
-![formula_used](./codes/outputs/formula.png)
+![formula_used](./codes/extra/formula.png)
 
 ## Normal mode & Plotting Vibrational Frequencies
 
@@ -222,7 +222,7 @@ For diagonal mass-weighted hessian matrix, we have sum of harmonic oscillator ha
 
 As hessian is real & symmetric, ti can be orthogonalised using real orthogonal matrix as followin.
 
-![normal](./codes/outputs/normal.png)
+![normal](./codes/extra/normal.png)
 
 where Q are eigen vectors.
 
@@ -230,7 +230,7 @@ Back-tranforming to un-mass waighted cartesian space gives the normal modes of t
 
 **Normal modes** are written in file `mode.xyz`. Format is:-
 
-![modeformat](./codes/outputs/modeformat.png)
+![modeformat](./codes/extra/modeformat.png)
 
 
 **Histogram Plot :**
