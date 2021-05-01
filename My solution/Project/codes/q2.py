@@ -3,7 +3,7 @@ from numpy.linalg.linalg import norm
 from configuration import Configuration
 
 def read_config():
-    f2 = open("./outputs/molecule.xyz", "r")
+    f2 = open("./outputs/init_conf.xyz", "r")
     raw_points = f2.read()
     points = []
     for line in raw_points.split('\n')[2:]:
