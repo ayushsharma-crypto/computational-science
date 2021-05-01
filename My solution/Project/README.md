@@ -149,23 +149,92 @@ def calculate_potential(self):
 
 Basically I did the summation of interaction energy per pair, which is as follows:-
 
-![IVMD](./codes/outputs/interactionenergy.png)
+![IE](./codes/outputs/interactionenergy.png)
 
 
 The output for the submittedmolecule is: <b>-152.47234949736315</b>
 
 ## Finding  minimum energy configuration of generated system.
 
+In this part we minimises the total energy of system w.r.t PBC using steepest descend algo.
 
-Following is the ifinal VMD output for final configuration:-
+**PBC(Periodic Boundary Condition) :**
+
+These are boundary condition for approximating large system by focusing on it's small part i.e. unit cell.
+
+Following function account for the same & calculates distance to the nearest mirror image in the simulation :-
+
+```python3
+def pbc(point1, point2):
+    L = 18
+    mod_length = (point2 - point1) % L # The image in the first cube
+    return ((mod_length+L/2)%L)-L/2 # MIC separation vector
+```
+As a result, there is no need to verify the boundary conditions during the updating of the atom's coordinates. I convert the out of bound coordinates to inside the box as required when placing the solution in `final_conf.xyz`.
+
+**Steepest Descend Algorithm :**
+
+* Heuristics:-
+    1. iteration_heuristic = 200
+    2. alpha_heuristic = 0.135
+
+![MA](./codes/outputs/minimizationalgo.png)
+
+**Logic of Code :**
+
+* Used library `autograd` for faster calculation than `numpy`. It also posses numpy operations.
+* Used `gradient` function from `autograd` for getting slope at given point.
+* In `for` loop I stored the cost i.e. energy & weight i.e. configuraton of the system.
+* Finaly, printedstored final conf. in file `final_conf.xyz` and looged the energy at each step in file `gradient_descent_log.txt`.
+
+Code for steepest descent algo in `q3.py`:- 
+
+```python3
+iteration_heuristic = 200
+alpha_heuristic = 0.135
+for i in tqdm(range(iteration_heuristic)):
+    new_config -= alpha_heuristic*gradient(new_config)
+    weight_history.append(new_config)
+    cost_history.append(calculate_potential(new_config))
+```
+
+Following is the final VMD output for final configuration:-
 
 ![IVMD](./codes/outputs/finalVMD.png)
 
 ## Hessian Matrix calculation with Eigen vectors & Eigen values
 
+File `q4.py` accounts for Hessian matrix calculation & eigen vectors & values with class `Hessian` solely. 
+
+The file took atleast 50 minutes to run. So used `Pool()` for multiprocessing which reduces it to around 27 minutes and got the hessian matrix. 
+
+Used numpy library funtions for eigen balues & vectors.
+
+The hassien matrix, eigen values  & eigen vectorsis saved in `hassien.py`, `eigen_values.dat` and `eigen_vectors.dat` respectively.
+
+Formula used :-
+
+![formula_used](./codes/outputs/formula.png)
+
+## Normal mode & Plotting Vibrational Frequencies
+
+For diagonal mass-weighted hessian matrix, we have sum of harmonic oscillator hamiltonians, whic can be done by choosing normal coordinates =  {q1, . . . , q3N }.
+
+As hessian is real & symmetric, ti can be orthogonalised using real orthogonal matrix as followin.
+
+![normal](./codes/outputs/normal.png)
+
+where Q are eigen vectors.
+
+Back-tranforming to un-mass waighted cartesian space gives the normal modes of the system.
+
+**Normal modes** are written in file `mode.xyz`. Format is:-
+
+![modeformat](./codes/outputs/modeformat.png)
 
 
-## Plotting Vibrational Frequencies
+**Histogram Plot :**
 
+Some modes are very high in number while others are very low. 
 
 ![plot](./codes/outputs/vibration_frequency.png)
