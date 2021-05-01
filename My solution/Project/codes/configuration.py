@@ -48,8 +48,8 @@ class Configuration:
             print(f"Total points = {len(self.config)}")
 
         
-    def read_config(self):
-        f2 = open("./outputs/init_conf.xyz", "r")
+    def read_config(self, file):
+        f2 = open(file, "r")
         raw_points = f2.read()
         points = []
         for line in raw_points.split('\n')[2:]:
@@ -81,3 +81,17 @@ class Configuration:
                 val = val*( a**12 - a**6 )
                 potential += val
         return potential
+
+    
+    def convert_to_bohr(self):
+        if self.units == "Angstrom":
+            self.config *= 1.889725989
+            self.units = "Bohr"
+        return self.config
+
+           
+    def convert_to_angstrom(self):
+        if self.units == "Bohr":
+            self.config /= 1.889725989
+            self.units = "Angstrom"
+        return self.config
