@@ -46,6 +46,38 @@ class Configuration:
                 iterated_times = 0
                 self.config.append(random_point)
             print(f"Total points = {len(self.config)}")
+
+        
+    def read_config(self):
+        f2 = open("./outputs/init_conf.xyz", "r")
+        raw_points = f2.read()
+        points = []
+        for line in raw_points.split('\n')[2:]:
+            if line=="":
+                continue
+            atom, x, y, z = line.split()[:4]
+            points.append([float(x), float(y), float(z)])
+        f2.close()
+        return points
         
     def assign_configuration(self,new_config):
-        self.config = new_config    
+        self.config = new_config 
+        self.total_atoms = len(new_config)   
+    
+
+    def calculate_potential(self):
+        print("Total atoms = ",self.total_atoms)
+        pairs = []
+        for i in range(self.total_atoms):
+            for j in range(i+1, self.total_atoms):
+                pairs.append((self.config[i],self.config[j]))
+        
+        potential = 0
+        for (p1, p2) in pairs:
+            Rij = norm(self.pbc(p1,p2))
+            if Rij!=0:
+                val = 4*self.epsilon
+                a = self.sigma/Rij
+                val = val*( a**12 - a**6 )
+                potential += val
+        return potential

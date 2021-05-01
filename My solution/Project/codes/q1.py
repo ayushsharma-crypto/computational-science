@@ -5,6 +5,7 @@ def initial_configuration():
     random_configuration.create_random_configuration()
     f = open("outputs/init_conf.xyz", "w")
     f.write(f"{random_configuration.total_atoms}\n")
+    f.write(f"\n")
     for line in random_configuration.config:
         f.write(f"C {line[0]} {line[1]} {line[2]}\n")
     f.close()
