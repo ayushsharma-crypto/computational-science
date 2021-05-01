@@ -65,7 +65,7 @@ class Frequency:
         t.close()
         a = np.array(freq)
         plt.hist(a, bins=100)
-        plt.title("Frequency Histogram")
+        plt.title("Plot Vibrational Frequency")
         # plt.savefig("hist.png")
         plt.show()
 
