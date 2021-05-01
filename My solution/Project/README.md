@@ -106,17 +106,60 @@ Following is the explanation of what each output contains:-
 
 **Given:**
 
-* 𝑁=108(initial number of atoms)
-* 𝐿<sub>x</sub>=𝐿<sub>y</sub>=𝐿<sub>z</sub>=18𝐴°(side of the cube)
-* ∈=0.238$%&'()'(Lennard Jones Energy Parameter)
-* 𝜎=3.4𝐴°(radius)𝑟*+≥3.4𝐴°(distance between any two pairs of atoms)
+* 𝑁 = 108 (initial number of atoms)
+* 𝐿<sub>x</sub> = 𝐿<sub>y</sub> = 𝐿<sub>z</sub> = 18 𝐴° (side of the cube)
+* ∈=0.238 Kcal/mol (Lennard Jones Energy Parameter)
+* 𝜎 = 3.4 𝐴°
+* r<sub>ij</sub> (radius)  ≥ 3.4 𝐴°(distance between any two pairs of atoms)
+
+A class for configuration of molecule `Configuration()` has been made in file `configuration.py`, for storing the 3-d coordinates of each of the 108 atoms and calculating their energy described in the next section.
+
+Code for random generation has been done in file `q1.py`. Since, the code is self explanatory as it generates 3-D points for cube  𝐿<sub>x</sub> = 𝐿<sub>y</sub> = 𝐿<sub>z</sub> = 18 𝐴°  s.t. no two points have distance less than r<sub>ij</sub> (radius)  ≥ 3.4 𝐴° (following PBC).
+
+It saves the generated configuration in file `init_conf.xyz` in `outputs` folder.
+Following is the inital VMD output for initial configuration:-
+
+![IVMD](./codes/outputs/initialVMD.png)
 
 
 ## Calculating `LJ Potential` of the generated System.
 
 
+In this I calculated LJ Potential/Energy of the generated system.
+Code for random generation has been done in file `q2.py`. The main function which calculates energy is ( in file `configuration.py` ) :-
+
+```python3
+def calculate_potential(self):
+    print("Total atoms = ",self.total_atoms)
+    pairs = []
+    for i in range(self.total_atoms):
+        for j in range(i+1, self.total_atoms):
+            pairs.append((self.config[i],self.config[j]))
+    
+    potential = 0
+    for (p1, p2) in pairs:
+        Rij = norm(self.pbc(p1,p2))
+        if Rij!=0:
+            val = 4*self.epsilon
+            a = self.sigma/Rij
+            val = val*( a**12 - a**6 )
+            potential += val
+    return potential
+```
+
+Basically I did the summation of interaction energy per pair, which is as follows:-
+
+![IVMD](./codes/outputs/interactionenergy.png)
+
+
+The output for the submittedmolecule is: <b>-152.47234949736315</b>
+
 ## Finding  minimum energy configuration of generated system.
 
+
+Following is the ifinal VMD output for final configuration:-
+
+![IVMD](./codes/outputs/finalVMD.png)
 
 ## Hessian Matrix calculation with Eigen vectors & Eigen values
 
