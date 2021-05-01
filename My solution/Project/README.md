@@ -7,6 +7,7 @@
 
 Table of Content:
 
+* Intro
 * Requirements & code Execution & File structure
 * Random initial configuration generation.
 * Calculating `LJ Potential` of the generated System.
@@ -14,6 +15,20 @@ Table of Content:
 * Hessian Matrix calculation with Eigen vectors & Eigen values
 * Plotting Vibrational Frequencies
 
+## Intro
+
+Analysing the Normal Modes of an Argon System of 108 atoms following the Lennard Jones Potential. The code generates a initial random configuration of 108 atoms based on the given conditions, implements Periodic Boundary Conditions, Reduces the system of the random configuration using the Steepest Descent Algorithm for minimisation, then it generates a Hessian Matrix , and the eigen values and eigen vectors for it. It also plots a histogram of the frequencies. 
+
+This project accounts for analysing Normal mode of an Argon system of 108 atoms. The project implements the following things:-
+
+
+* Random initial configuration generation.
+* Calculating `LJ Potential` of the generated System.
+* Finding  minimum energy configuration of generated system (Using Steepest Descent Algorithm)
+* Hessian Matrix calculation with Eigen vectors & Eigen values
+* Plotting Vibrational Frequencies
+
+For detailed report refer `Report.pdf`
 
 ## Requirements & code Execution & File structure
 
@@ -68,3 +83,19 @@ For each part of the project (total 5), a file has been written (nammed for same
 ├── Report.pdf
 └── Requirements.txt
 ```
+
+
+**Outputs :**
+
+
+Following is the explanation of what each output contains:-
+
+- `outputs` : This folder contains all files for project submission.
+  - `init_conf.xyz`- The initial random configuration in the xyz format.
+  - `gradient_descent_log.txt` - Total potenial log while doing potential/energy minization of initial configuration using the steepest descent algorithm.
+  - `final_conf.xyz` - The final molecule configuration after minimisation.
+  - `eigen_values.dat`- The eigen values for the submission.
+  - `eigen_vectors.dat`- The eigen_vectors corresponding to these.
+  - `hessian.dat`- The hessian matrix as part of the submission
+  - `modes.xyz`- The final normal modes of the system after all calculations in the xyz format. The format is decribed in report.
+  - `vibration_frequency.png` - The histogram as part of submission
