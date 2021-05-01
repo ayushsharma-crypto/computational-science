@@ -99,3 +99,30 @@ Following is the explanation of what each output contains:-
   - `hessian.dat`- The hessian matrix as part of the submission
   - `modes.xyz`- The final normal modes of the system after all calculations in the xyz format. The format is decribed in report.
   - `vibration_frequency.png` - The histogram as part of submission
+
+
+
+## Random initial configuration generation.
+
+**Given:**
+
+* 𝑁=108(initial number of atoms)
+* 𝐿<sub>x</sub>=𝐿<sub>y</sub>=𝐿<sub>z</sub>=18𝐴°(side of the cube)
+* ∈=0.238$%&'()'(Lennard Jones Energy Parameter)
+* 𝜎=3.4𝐴°(radius)𝑟*+≥3.4𝐴°(distance between any two pairs of atoms)
+
+
+## Calculating `LJ Potential` of the generated System.
+
+
+## Finding  minimum energy configuration of generated system.
+
+
+## Hessian Matrix calculation with Eigen vectors & Eigen values
+
+
+
+## Plotting Vibrational Frequencies
+
+
+![plot](./codes/outputs/vibration_frequency.png)
